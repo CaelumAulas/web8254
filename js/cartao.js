@@ -8,7 +8,6 @@
         const cartao = cartoes[i];
 
         //adicionar evento focus em cada cartao
-        
         cartao.addEventListener('focusin', function(){
             this.classList.add('cartao--focado')
         })
@@ -28,6 +27,28 @@
                 this.style.backgroundColor = input.value
             }
 
+        })
+
+        cartao.addEventListener('keyup', function(evento){
+
+            const isLabel = evento.target.classList.contains('opcoesDoCartao-tipo');
+            //se apertar enter ou barra de espaço no label
+            if(isLabel && (evento.code == 'Enter' || evento.code == 'Space')){
+                //this.style.backgroundColor = evento.target.style.color
+                event.target.click()
+            }
+            
+        })
+
+        cartao.addEventListener('click', function(evento){
+            
+            const isLixeira = evento.target.classList.contains('opcoesDoCartao-remove')
+
+            if(isLixeira){
+                this.classList.add('cartao--some');
+                this.addEventListener('transitionend', this.remove)
+            }
+            
         })
 
     }
