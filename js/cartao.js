@@ -53,7 +53,7 @@
     //adicionar o eventListener com o evento change
     cartao.addEventListener('change', function (evento) {
       //no callback do change, pegar o valor do input
-      const input = event.target
+      const input = evento.target
       const isInputCor = input.classList.contains('opcoesDoCartao-radioTipo')
   
       if (isInputCor) {
